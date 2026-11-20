@@ -715,10 +715,12 @@ nav a.active::after {
 }
 
 .order-item {
-  display: grid;
+  display: flex;
+  align-items: center;
   grid-template-columns: 35px 1fr auto auto;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  flex-wrap: nowrap;
 
   padding: 16px;
 
@@ -1187,4 +1189,169 @@ footer > p {
     font-size: 36px;
   }
 
+}
+
+
+/* =========================================
+   MAMA PUT — PREMIUM QUANTITY CONTROLS
+========================================= */
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Minus and plus buttons */
+.quantity-control .quantity-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  border: 1px solid rgba(250, 204, 21, 0.4);
+  border-radius: 10px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.25),
+    rgba(76, 29, 149, 0.35)
+  );
+
+  color: #facc15;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.quantity-control .quantity-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  color: #17121f;
+  border-color: #facc15;
+  box-shadow: 0 0 14px rgba(250, 204, 21, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Click effect */
+.quantity-control .quantity-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+/* Disabled buttons */
+.quantity-control .quantity-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Quantity number input */
+.quantity-control .quantity {
+  box-sizing: border-box;
+
+  width: 42px;
+  min-width: 42px;
+  height: 36px;
+  padding: 0 2px;
+
+  border: 1px solid rgba(250, 204, 21, 0.25);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Highlight quantity when focused */
+.quantity-control .quantity:focus {
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.12);
+}
+
+/* Keep disabled quantity readable */
+.quantity-control .quantity:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Remove number input arrows in Chrome, Edge and Safari */
+.quantity-control .quantity::-webkit-inner-spin-button,
+.quantity-control .quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input arrows in Firefox */
+.quantity-control .quantity {
+  -moz-appearance: textfield;
+}
+ 
+
+/* =========================================================
+   MENU FOOD IMAGES
+========================================================= */
+
+.menu-item-image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0;
+}
+
+
+/* Food images on the order page */
+.order-item-image {
+  display: block;
+  width: 70px;
+  height: 70px;
+  flex: 0 0 70px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0;
+}
+
+
+/* Add to Cart button */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, var(--lime), var(--green));
+  color: #07070b;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.96);
 }
